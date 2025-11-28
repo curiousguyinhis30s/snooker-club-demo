@@ -265,7 +265,7 @@ export default function BillingModal({ session, tableNumber, onClose, onConfirm,
   }
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-end md:items-center justify-center z-50 animate-fade-in">
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-end md:items-center justify-center z-[60] animate-fade-in">
       <div className="bg-white rounded-t-2xl md:rounded-xl shadow-2xl w-full md:max-w-3xl max-h-[85vh] md:max-h-[85vh] md:mx-4 flex flex-col animate-scale-in overflow-hidden">
         {/* Header */}
         <div className="bg-slate-800 px-4 lg:px-5 py-3 flex-shrink-0">

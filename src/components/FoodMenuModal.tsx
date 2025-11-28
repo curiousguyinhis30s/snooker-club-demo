@@ -90,7 +90,7 @@ export default function FoodMenuModal({ tableNumber, menuItems, bundles = [], on
   }, 0);
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-end md:items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black/50 flex items-end md:items-center justify-center z-[60]">
       <div className="bg-white rounded-t-2xl md:rounded-lg shadow-xl w-full md:max-w-4xl max-h-[80vh] md:max-h-[90vh] md:mx-4 flex flex-col overflow-hidden">
         {/* Header */}
         <div className="px-6 py-4 border-b border-gray-200">

@@ -320,7 +320,7 @@ export default function CustomerManagement({ settings, onUpdateSettings }: Custo
 
       {/* Add Customer Modal */}
       {showAddModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[60] p-4">
           <div className="bg-white rounded-xl shadow-xl w-full max-w-md">
             <div className="flex items-center justify-between p-6 border-b border-gray-200">
               <h3 className="text-lg font-semibold text-gray-900">Add New Customer</h3>
@@ -399,7 +399,7 @@ export default function CustomerManagement({ settings, onUpdateSettings }: Custo
 
       {/* Customer Detail Modal */}
       {showDetailModal && selectedCustomer && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 overflow-y-auto">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[60] p-4 overflow-y-auto">
           <div className="bg-white rounded-xl shadow-xl w-full max-w-4xl my-8">
             <div className="flex items-center justify-between p-6 border-b border-gray-200">
               <div>

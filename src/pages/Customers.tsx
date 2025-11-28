@@ -196,7 +196,7 @@ export default function Customers() {
 
       {/* Add Customer Modal */}
       {showAddModal && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[60] p-4">
           <div className="bg-white rounded-lg shadow-xl w-full max-w-sm overflow-hidden">
             {/* Header */}
             <div className="px-4 py-3 border-b border-gray-200">
@@ -265,7 +265,7 @@ export default function Customers() {
 
       {/* Customer Detail Modal */}
       {selectedCustomer && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[60] p-4">
           <div className="bg-white rounded-xl shadow-xl w-full max-w-lg overflow-hidden">
             {/* Header with tier badge */}
             <div className="px-6 py-5 border-b border-gray-200 bg-gradient-to-r from-gray-50 to-white">

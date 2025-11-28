@@ -351,7 +351,7 @@ export default function UserManagement({ currentUser }: UserManagementProps) {
 
       {/* Add User Modal */}
       {showAddModal && (
-        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-5">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
               Add New {userTypeToAdd === 'owner' ? 'Owner' : 'Employee'}
@@ -439,7 +439,7 @@ export default function UserManagement({ currentUser }: UserManagementProps) {
 
       {/* Reset PIN Modal */}
       {showResetPinModal && resetPinUser && (
-        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-5">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center">
