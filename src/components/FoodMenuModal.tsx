@@ -90,8 +90,8 @@ export default function FoodMenuModal({ tableNumber, menuItems, bundles = [], on
   }, 0);
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden">
+    <div className="fixed inset-0 bg-black/50 flex items-end md:items-center justify-center z-50">
+      <div className="bg-white rounded-t-2xl md:rounded-lg shadow-xl w-full md:max-w-4xl max-h-[80vh] md:max-h-[90vh] md:mx-4 flex flex-col overflow-hidden">
         {/* Header */}
         <div className="px-6 py-4 border-b border-gray-200">
           <div className="flex justify-between items-center">
@@ -266,24 +266,24 @@ export default function FoodMenuModal({ tableNumber, menuItems, bundles = [], on
           )}
         </div>
 
-        {/* Footer */}
-        <div className="border-t border-gray-200 px-6 py-4 bg-gray-50">
-          <div className="flex items-center justify-between">
-            <div>
+        {/* Footer - with bottom nav + safe area padding on mobile */}
+        <div className="border-t border-gray-200 px-4 md:px-6 py-3 md:py-4 bg-gray-50 pb-20 md:pb-4">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex-shrink-0">
               {totalItems > 0 && (
-                <div className="text-sm text-gray-600">
+                <div className="text-xs md:text-sm text-gray-600">
                   {totalItems} item{totalItems > 1 ? 's' : ''} · <span className="font-semibold text-gray-900">{formatCurrencyCompact(totalPrice)}</span>
                 </div>
               )}
             </div>
-            <div className="flex gap-3">
-              <button onClick={onClose} className="btn-secondary">
+            <div className="flex gap-2 md:gap-3 flex-1 md:flex-none justify-end">
+              <button onClick={onClose} className="btn-secondary py-2.5 md:py-2 px-3 md:px-4">
                 Cancel
               </button>
               <button
                 onClick={handleAddToSession}
                 disabled={totalItems === 0}
-                className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                className="btn-primary py-2.5 md:py-2 px-3 md:px-4 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Add to Session
               </button>

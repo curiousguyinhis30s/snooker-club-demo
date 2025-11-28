@@ -265,18 +265,18 @@ export default function BillingModal({ session, tableNumber, onClose, onConfirm,
   }
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in">
-      <div className="bg-white rounded-xl shadow-2xl w-full max-w-3xl h-[85vh] flex flex-col animate-scale-in overflow-hidden">
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-end md:items-center justify-center z-50 animate-fade-in">
+      <div className="bg-white rounded-t-2xl md:rounded-xl shadow-2xl w-full md:max-w-3xl max-h-[85vh] md:max-h-[85vh] md:mx-4 flex flex-col animate-scale-in overflow-hidden">
         {/* Header */}
-        <div className="bg-slate-800 px-5 py-3 flex-shrink-0">
+        <div className="bg-slate-800 px-4 lg:px-5 py-3 flex-shrink-0">
           <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center p-1.5">
+            <div className="flex items-center gap-2 lg:gap-3">
+              <div className="w-7 h-7 lg:w-8 lg:h-8 bg-slate-900 rounded-lg flex items-center justify-center p-1.5">
                 <SnookerBallIcon className="w-full h-full" />
               </div>
               <div>
-                <h3 className="text-[15px] font-semibold text-white">Session Bill</h3>
-                <p className="text-slate-400 text-xs">{tableNumber} • {session.customerName}</p>
+                <h3 className="text-sm lg:text-[15px] font-semibold text-white">Session Bill</h3>
+                <p className="text-slate-400 text-[11px] lg:text-xs">{tableNumber} • {session.customerName}</p>
               </div>
             </div>
             <button
@@ -288,10 +288,10 @@ export default function BillingModal({ session, tableNumber, onClose, onConfirm,
           </div>
         </div>
 
-        {/* Main Content - 2 Column Layout */}
-        <div className="flex-1 flex overflow-hidden">
+        {/* Main Content - Single column on mobile, 2 columns on tablet+ */}
+        <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
           {/* Left Column - Bill Details */}
-          <div className="flex-1 p-4 overflow-y-auto border-r border-gray-100">
+          <div className="flex-1 p-3 md:p-4 overflow-y-auto md:border-r border-gray-100">
             {/* Session Info */}
             <div className="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg mb-3">
               <div className="flex items-center gap-2.5">
@@ -400,7 +400,7 @@ export default function BillingModal({ session, tableNumber, onClose, onConfirm,
           </div>
 
           {/* Right Column - Payment */}
-          <div className="w-72 p-4 bg-slate-50 flex flex-col">
+          <div className="w-full md:w-72 p-3 md:p-4 bg-slate-50 flex flex-col flex-shrink-0 border-t md:border-t-0 border-gray-200">
             {/* Payment Method */}
             <div className="mb-3">
               <p className="text-[11px] font-medium text-slate-500 uppercase mb-1.5">Payment Method</p>
@@ -514,31 +514,33 @@ export default function BillingModal({ session, tableNumber, onClose, onConfirm,
               </div>
             )}
 
-            {/* Confirm Button */}
-            <button
-              onClick={handleConfirmPayment}
-              disabled={isProcessing}
-              className={`mt-3 w-full py-2.5 rounded-lg text-[13px] font-medium text-white transition-all flex items-center justify-center gap-2 ${
-                isProcessing
-                  ? 'bg-slate-400 cursor-not-allowed'
-                  : 'bg-slate-900 hover:bg-neutral-950 shadow-md shadow-slate-900/20'
-              }`}
-            >
-              {isProcessing ? (
-                <>
-                  <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                  </svg>
-                  <span>Processing...</span>
-                </>
-              ) : (
-                <>
-                  <span>Confirm Payment</span>
-                  <span className="font-semibold">{formatCurrencyCompact(totalAmount)}</span>
-                </>
-              )}
-            </button>
+            {/* Confirm Button - with bottom nav + safe area padding on mobile */}
+            <div className="mt-3 pb-20 md:pb-0">
+              <button
+                onClick={handleConfirmPayment}
+                disabled={isProcessing}
+                className={`w-full py-3 md:py-2.5 rounded-lg text-sm md:text-[13px] font-medium text-white transition-all flex items-center justify-center gap-2 ${
+                  isProcessing
+                    ? 'bg-slate-400 cursor-not-allowed'
+                    : 'bg-slate-900 hover:bg-neutral-950 shadow-md shadow-slate-900/20 active:scale-[0.98]'
+                }`}
+              >
+                {isProcessing ? (
+                  <>
+                    <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                    <span>Processing...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Confirm Payment</span>
+                    <span className="font-semibold">{formatCurrencyCompact(totalAmount)}</span>
+                  </>
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </div>

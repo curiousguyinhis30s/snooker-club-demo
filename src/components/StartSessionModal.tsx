@@ -51,8 +51,8 @@ export default function StartSessionModal({ tableNumber, onClose, onStart }: Sta
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-lg shadow-xl max-w-lg w-full max-h-[90vh] flex flex-col overflow-hidden">
+    <div className="fixed inset-0 bg-black/50 flex items-end md:items-center justify-center z-50">
+      <div className="bg-white rounded-t-2xl md:rounded-lg shadow-xl w-full md:max-w-lg max-h-[80vh] md:max-h-[90vh] md:mx-4 flex flex-col overflow-hidden">
         {/* Header */}
         <div className="px-6 py-4 border-b border-gray-200">
           <div className="flex justify-between items-center">
@@ -200,17 +200,17 @@ export default function StartSessionModal({ tableNumber, onClose, onStart }: Sta
           )}
         </div>
 
-        {/* Footer */}
-        <div className="border-t border-gray-200 px-6 py-4 bg-gray-50">
-          <div className="flex gap-3">
-            <button onClick={onClose} className="btn-secondary flex-1">
+        {/* Footer - with bottom nav + safe area padding on mobile */}
+        <div className="border-t border-gray-200 px-4 md:px-6 py-3 md:py-4 bg-gray-50 pb-20 md:pb-4">
+          <div className="flex gap-2 md:gap-3">
+            <button onClick={onClose} className="btn-secondary flex-1 py-2.5 md:py-2">
               Cancel
             </button>
             {mode === 'select' ? (
               <button
                 onClick={handleStartWithSelected}
                 disabled={!selectedCustomer}
-                className="btn-primary flex-1 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="btn-primary flex-1 py-2.5 md:py-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Start Session
               </button>
@@ -218,7 +218,7 @@ export default function StartSessionModal({ tableNumber, onClose, onStart }: Sta
               <button
                 onClick={handleStartWithNew}
                 disabled={!name.trim() || !phone.trim()}
-                className="btn-primary flex-1 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="btn-primary flex-1 py-2.5 md:py-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Add & Start
               </button>
