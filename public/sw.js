@@ -1,5 +1,5 @@
 // Service Worker for Offline Support
-const CACHE_NAME = 'snooker-club-v1';
+const CACHE_NAME = 'snooker-club-demo-v2';
 const urlsToCache = [
   '/',
   '/index.html',
