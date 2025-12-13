@@ -121,6 +121,20 @@ export function getAllUsers(): User[] {
 // Save all users
 function saveUsers(users: User[]): void {
   localStorage.setItem(USERS_KEY, JSON.stringify(users));
+  // Update data fingerprint when users change
+  updateDataFingerprint();
+}
+
+// Update data fingerprint to track that custom data exists
+function updateDataFingerprint(): void {
+  const users = getUsersRaw();
+  const hasOwner = users.some((u: User) => u.role === 'owner');
+  const hasEmployees = users.some((u: User) => u.role === 'employee');
+
+  if (hasOwner || hasEmployees) {
+    const fingerprint = `fp-${users.length}-${Date.now()}`;
+    localStorage.setItem('snooker_data_fingerprint', fingerprint);
+  }
 }
 
 // Update last activity timestamp

@@ -224,6 +224,19 @@ export const store = {
 
   saveSettings(settings: Settings) {
     localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(settings));
+    // Update data fingerprint when settings change
+    this.updateDataFingerprint(settings);
+  },
+
+  updateDataFingerprint(settings: Settings) {
+    // Track that custom data exists
+    const hasCustomCustomers = (settings.customers?.length || 0) > 6;
+    const hasTransactions = !!localStorage.getItem('snooker_sales_transactions');
+
+    if (hasCustomCustomers || hasTransactions) {
+      const fingerprint = `fp-settings-${settings.customers?.length || 0}-${Date.now()}`;
+      localStorage.setItem('snooker_data_fingerprint', fingerprint);
+    }
   },
 
   startSession(tableId: number, customerName: string, customerPhone?: string): Table[] {

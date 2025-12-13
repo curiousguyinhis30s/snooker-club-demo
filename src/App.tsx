@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar';
 import BottomNav from './components/BottomNav';
 import MobileHeader from './components/MobileHeader';
 import MobileSettingsMenu from './components/MobileSettingsMenu';
+import DataLossWarning, { saveDataFingerprint } from './components/DataLossWarning';
 import TablesView from './pages/TablesView';
 import Customers from './pages/Customers';
 import Expenses from './pages/Expenses';
@@ -102,6 +103,13 @@ function App() {
   const handleSetupComplete = () => {
     setShowSetup(false);
     setCurrentUser(getCurrentUser());
+    // Save fingerprint after owner setup
+    saveDataFingerprint();
+  };
+
+  // Navigate to backup page for data restoration
+  const handleNavigateToBackup = () => {
+    setCurrentView('settings-backup');
   };
 
   const handleLogout = () => {
@@ -212,6 +220,9 @@ function App() {
 
   return (
     <>
+      {/* Data Loss Warning - shows if localStorage was cleared */}
+      <DataLossWarning onRestoreFromBackup={handleNavigateToBackup} />
+
       {/* Desktop Layout - unchanged */}
       <div className="hidden lg:flex h-screen bg-slate-50">
         <Sidebar
