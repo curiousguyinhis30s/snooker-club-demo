@@ -124,7 +124,16 @@ function App() {
 
   // Show login if not authenticated
   if (!currentUser) {
-    return <Login onLogin={handleLogin} />;
+    return (
+      <>
+        {/* Data Loss Warning - shows even on login screen */}
+        <DataLossWarning onRestoreFromBackup={() => {
+          // After restore, user will need to login
+          window.location.reload();
+        }} />
+        <Login onLogin={handleLogin} />
+      </>
+    );
   }
 
   const renderView = () => {

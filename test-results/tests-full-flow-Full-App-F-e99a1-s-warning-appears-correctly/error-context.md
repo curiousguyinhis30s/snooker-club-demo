@@ -1,0 +1,54 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e11]:
+    - generic [ref=e13]:
+      - img [ref=e15]
+      - generic [ref=e19]: Club Manager
+      - generic [ref=e20]: DEMO
+    - generic [ref=e21]:
+      - heading "Manage Your Snooker Club With Ease" [level=1] [ref=e22]:
+        - text: Manage Your
+        - text: Snooker Club
+        - text: With Ease
+      - paragraph [ref=e23]: Complete billing, session tracking, customer management, and financial reporting in one powerful platform.
+    - generic [ref=e24]:
+      - generic [ref=e27]: Real-time tracking
+      - generic [ref=e30]: Secure & reliable
+      - generic [ref=e33]: Cloud backup
+  - generic [ref=e35]:
+    - generic [ref=e36]:
+      - generic [ref=e37]:
+        - img [ref=e38]
+        - generic [ref=e41]: Demo Credentials
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - text: "Username:"
+          - code [ref=e44]: superadmin
+        - generic [ref=e45]:
+          - text: "PIN:"
+          - code [ref=e46]: "999999"
+      - button "Click to auto-fill credentials" [ref=e47] [cursor=pointer]
+    - generic [ref=e48]:
+      - heading "Welcome to the Demo" [level=2] [ref=e49]
+      - paragraph [ref=e50]: Explore all features with pre-loaded sample data
+    - generic [ref=e51]:
+      - generic [ref=e52]:
+        - generic [ref=e53]: Username
+        - generic [ref=e54]:
+          - img [ref=e55]
+          - textbox "superadmin" [active] [ref=e58]
+      - generic [ref=e59]:
+        - generic [ref=e60]: PIN Code
+        - generic [ref=e61]:
+          - img [ref=e62]
+          - textbox "999999" [ref=e65]
+          - button [ref=e66] [cursor=pointer]:
+            - img [ref=e67]
+        - paragraph [ref=e70]: Enter your 6-digit PIN
+      - button "Sign In" [ref=e71] [cursor=pointer]:
+        - img [ref=e72]
+        - text: Sign In
+    - paragraph [ref=e75]: This is a demo version with sample data
+```
